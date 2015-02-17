@@ -122,6 +122,17 @@ public class Transaction extends EntityBase implements IView
 		myRegistry.updateSubscribers(key, this);
 	}
 
+	//-----------------------------------------------------------------------------------
+	public static int compare(Transaction a, Transaction b)
+	{
+		String aNum = (String)a.getState("transId");
+		String bNum = (String)b.getState("transId");
+
+		return aNum.compareTo(bNum);
+	}
+
+
+
 	/** Called via the IView relationship */
 	//----------------------------------------------------------
 	public void updateState(String key, Object value)
