@@ -167,6 +167,20 @@ public class Book extends EntityBase implements IView
 		//DEBUG System.out.println("updateStateInDatabase " + updateStatusMessage);
 	}
 
+	//-----------------------------------------------------------------------------------
+	public static int compare(Book a, Book b)
+	{
+		String aNum = (String)a.getState("bookId");
+		String bNum = (String)b.getState("bookId");
+
+		return aNum.compareTo(bNum);
+	}
+
+
+
+
+
+
 
 	/**
 	 * This method is needed solely to enable the book information to be displayable in a table
