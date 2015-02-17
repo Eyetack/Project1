@@ -1,4 +1,3 @@
-@@ -0,0 +1,226 @@
 // specify the package
 package model;
 
@@ -6,6 +5,7 @@ package model;
 import java.util.Properties;
 import java.util.Vector;
 import javax.swing.JFrame;
+import java.util.*;
 
 // project imports
 import exception.InvalidPrimaryKeyException;
