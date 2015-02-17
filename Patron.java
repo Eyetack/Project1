@@ -1,4 +1,3 @@
-@@ -0,0 +1,198 @@
 // specify the package
 package model;
 
@@ -117,6 +116,18 @@ public class Patron extends EntityBase implements IView
 
 		return persistentState.getProperty(key);
 	}
+
+//-----------------------------------------------------------------------------------
+	public static int compare(Patron a, Patron b)
+	{
+		String aNum = (String)a.getState("patronId");
+		String bNum = (String)b.getState("patronId");
+
+		return aNum.compareTo(bNum);
+	}
+
+
+
 
 	//----------------------------------------------------------------
 	public void stateChangeRequest(String key, Object value)
