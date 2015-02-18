@@ -28,28 +28,28 @@ public class TransactionCollection  extends EntityBase implements IView
 
 	// constructor for this class
 	//----------------------------------------------------------
-	public TransactionCollection(String dateOfTrans, int patronId, int bookId) throws
+	public TransactionCollection(String dateOfTrans, String patronId, String bookId) throws
 		Exception
 	{
-		if(tranId!=null){
-			if(patronId!=null){
-				if(bookId!=null){
+		if(dateOfTrans != null){
+			if(patronId != null){
+				if(bookId != null){
 					String select = "SELECT * FROM Transaction WHERE (dateOfTrans =" + dateOfTrans + ", patronId =" + patronId + ", bookId=" + bookId + ");";
 				}
 				String select = "SELECT * FROM Transaction WHERE (dateOfTrans =" + dateOfTrans + ", patronId =" + patronId + ");";
 			}
-			if(bookId!=null){
+			if(bookId != null){
 				String select = "SELECT * FROM Transaction WHERE (dateOfTrans =" + dateOfTrans + ", bookId=" + bookId + ");";
 			}
 			String select = "SELECT * FROM Transaction WHERE (dateOfTrans =" + dateOfTrans + ");";
 		}
-		else if(patronId!=null){
-			if(bookId!=null){
+		else if(patronId != null){
+			if(bookId != null){
 				String select = "SELECT * FROM Transaction WHERE (patronId =" + patronId + ", bookId=" + bookId + ");";
 			}
 			String select = "SELECT * FROM Transaction WHERE (patronId =" + patronId + ");";
 		}
-		else if(bookId!=null){
+		else if(bookId != null){
 			String select = "SELECT * FROM Transaction WHERE (bookId=" + bookId + ");";
 		}
 
