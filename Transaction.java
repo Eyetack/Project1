@@ -97,7 +97,11 @@ public class Transaction extends EntityBase implements IView
 			}
 		}
 	}
-
+//-----------------------------------------------------------------------------------
+public Transaction()
+{
+Properties persistentState = new Properties();
+}
 	//-----------------------------------------------------------------------------------
 	private void setDependencies()
 	{
