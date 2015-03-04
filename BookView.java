@@ -37,7 +37,7 @@ public class BookView extends View
 	protected JTextField author;
 	protected JTextField title;
 	protected JTextField pubYear;
-	protected JTextField status;
+	protected JComboBox status;
 
 	protected JButton cancelButton;
 	protected JButton submitButton;
@@ -242,10 +242,10 @@ public class BookView extends View
 		
 		if(author.getText() != null && title.getText() != null && Integer.parseInt(pubYear.getText()) >= 1800 && Integer.parseInt(pubYear.getText()) <= 2014)
 		{
-		   p.add(author.getText());
-		   p.add(title.getText());
-		   p.add(pubYear.getText());
-		   p.add(status.getSelectedItem());
+		   p.setProperty("author", author.getText());
+		   p.setProperty("title", title.getText());
+		   p.setProperty("pubYear", pubYear.getText());
+		   p.setProperty("status", status.getSelectedItem().toString());
 		   myModel.stateChangeRequest("InsertBook", p);
 		}
 		
@@ -272,12 +272,12 @@ public class BookView extends View
 	{
 		clearErrorMessage();
 
-		if (key.equals("ServiceCharge") == true)
+	/*	if (key.equals("InsertBookResult") == true)
 		{
 			String val = (String)value;
 			serviceCharge.setText(val);
 			displayMessage("Service Charge Imposed: $ " + val);
-		}
+		} */
 	}
 
 	/**
@@ -312,5 +312,6 @@ public class BookView extends View
 //---------------------------------------------------------------
 //	Revision History:
 //
+
 
 
