@@ -99,7 +99,11 @@ public class Patron extends EntityBase implements IView
 			}
 		}
 	}
-
+//-----------------------------------------------------------------------------------
+public Patron()
+{
+Properties persistentState = new Properties();
+}
 	//-----------------------------------------------------------------------------------
 	private void setDependencies()
 	{
