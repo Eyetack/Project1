@@ -1,4 +1,5 @@
 
+
 // specify the package
 package userinterface;
 
@@ -28,9 +29,13 @@ public class LibrarianView extends View
 
 	// GUI stuff
 /*	private JTextField userid;
-	private JPasswordField password;
-	private JButton submitButton;
-*/
+	private JPasswordField password; */
+	private JButton newBook;
+    private JButton newPatron;
+    private JButton newTransaction;
+    private JButton searchBook;	
+	private JButton doneButton;
+
 	// For showing error message
 	private MessageView statusLog;
 
@@ -55,7 +60,7 @@ public class LibrarianView extends View
 	//	populateFields();
 
 		// STEP 0: Be sure you tell your model what keys you are interested in
-		//myModel.subscribe("LoginError", this);
+		myModel.subscribe("TransactionError", this);
 	}
 
 	// Overide the paint method to ensure we can set the focus when made visible
@@ -96,7 +101,7 @@ public class LibrarianView extends View
 
 		JButton newBook = new JButton("Insert New Book");
 		newBook.addActionListener(this);
-		temp1.add(useridLabel);
+		temp1.add(newBook);
 
 		temp.add(temp1);
 
@@ -182,27 +187,27 @@ public class LibrarianView extends View
 		if (evt.getSource() == newBook)
 		{
 			
-			librarian.createNewBook();
+			this.createNewBook();
 		}
 		else
 		if (evt.getSource() == newPatron)
 		{
 			
-			librarian.createNewPatron();
+			this.createNewPatron();
 		}
 		
 		else
 		if (evt.getSource() == newTransaction)
 		{
 			
-			librarian.createNewTransaction();
+			myModel.createNewTransaction();
 		}
 		
 		else
 		if (evt.getSource() == searchBook)
 		{
 			
-			librarian.searchBooks();
+			myModel.searchBooks();
 		}
 
 	} 
@@ -225,13 +230,13 @@ public class LibrarianView extends View
 
 		myModel.stateChangeRequest("Login", props);
 	}
-
+*/
 	//---------------------------------------------------------
 	public void updateState(String key, Object value)
 	{
 		// STEP 6: Be sure to finish the end of the 'perturbation'
 		// by indicating how the view state gets updated.
-		if (key.equals("LoginError") == true)
+		if (key.equals("TransactionError") == true)
 		{
 			// display the passed text
 			displayErrorMessage((String)value);
@@ -256,6 +261,6 @@ public class LibrarianView extends View
 	{
 		statusLog.clearErrorMessage();
 	}
-*/
+
 }
 
