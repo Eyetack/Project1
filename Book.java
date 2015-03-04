@@ -82,13 +82,13 @@ persistentState.setProperty(nextKey, nextValue);
 //-----------------------------------------------------------------------------------
 public Book()
 {
-persistentState = new Properties();
+Properties persistentState = new Properties();
 }
 //-----------------------------------------------------------------------------------
 private void setDependencies()
 {
 dependencies = new Properties();
-dependencies.add("InsertBook", "InsertBookResult");
+dependencies.setProperty("InsertBook", "InsertBookResult");
 myRegistry.setDependencies(dependencies);
 }
 //----------------------------------------------------------
