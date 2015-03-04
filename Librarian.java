@@ -140,7 +140,7 @@ public class Librarian implements IView, IModel, ISlideShow
 		}
 		else */
 		if ((key.equals("Book") == true) || (key.equals("Patron") == true) ||
-			(key.equals("Transaction") == true) || (key.equals("Search") == true) ||)
+			(key.equals("Transaction") == true) || (key.equals("Search") == true))
 		{
 			String transType = key;
 
@@ -324,28 +324,76 @@ public class Librarian implements IView, IModel, ISlideShow
 	}
 	
 	public void createNewBook() {
+      
+         Book b = new Book();
 	
-	Book b = new Book();
-	BookView v = new BookView(b);
-	swapToView(v);
+	View localView = (View)myViews.get("BookView");
+
+		if (localView == null)
+		{
+				// create our initial view
+				localView = ViewFactory.createView("BookView", b); // USE VIEW FACTORY
+
+				myViews.put("BookView", localView);
+
+				// make the view visible by installing it into the frame
+				myFrame.getContentPane().add(localView); // just the main panel in this case
+				myFrame.pack();
+		}
+		else
+		{
+			swapToView(localView);
+		}
 	
 	}
 	
 	public void createNewPatron() {
 	
 	Patron p = new Patron();
-	PatronView v = new PatronView(p);
-	swapToView(v);
+	View localView = (View)myViews.get("PatronView");
+
+		if (localView == null)
+		{
+				// create our initial view
+				localView = ViewFactory.createView("PatronView", p); // USE VIEW FACTORY
+
+				myViews.put("PatronView", localView);
+
+				// make the view visible by installing it into the frame
+				myFrame.getContentPane().add(localView); // just the main panel in this case
+				myFrame.pack();
+		}
+		else
+		{
+			swapToView(localView);
+		}
+	
 	
 	}
 	
 	public void createNewTransaction() {
 	
 	Transaction t = new Transaction();
-	TransactionView v = new TransactionView(t);
-	swapToView(v);
+	View localView = (View)myViews.get("TransactionView");
+
+		if (localView == null)
+		{
+				// create our initial view
+				localView = ViewFactory.createView("TransactionView", t); // USE VIEW FACTORY
+
+				myViews.put("TransactionView", localView);
+
+				// make the view visible by installing it into the frame
+				myFrame.getContentPane().add(localView); // just the main panel in this case
+				myFrame.pack();
+		}
+		else
+		{
+			swapToView(localView);
+		}
 	
-	}
+	
+	} 
 
 }
 
